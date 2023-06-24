@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>공과대학 간식행사</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <style>
+        .insert_div {
+            background-color: white;
+            width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 3px 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="insert_div">
+    <h1 style="text-align: center">[공과대학 간식행사 이벤트]</h1>
+    안녕하세요 &#128154;<br>
+    제 00대 공과대학 학생회 NEWTURN입니다!<br><br>
+
+    20XX년 1학기 시험기간 간식 행사가 찾아왔습니다!<br>
+    열심히 달려오신 여러분들, 1학기도 수고 많으셨습니다!<br><br>
+
+    &#10004; 기간 : 00월 00일 오후 7시, 단 하루!!!<br>
+    &#10004; 대상 : 선착순 300명(각 간식당 100개씩), 학생회비 납부자(재학생)만 참여가능!<br><br>
+
+    &#10004; 본 간식행사는 선착순 마감입니다!<br>
+    빠른 참여 부탁드립니다!<br><br>
+
+    &#10004; 상품은 학생회비 납부 확인 후 일괄 문자 발송 예정입니다.<br><br>
+
+    1학기 종강이 다가오고 있습니다.<br>
+    시험 공부 힘드시겠지만, 맛있는 간식 드시고 힘내세요!<br><br>
+
+    감사합니다! &#128152;<br><br>
+</div>
+
+<form action="http://127.0.0.1:8000/insert/result/" method="POST" class="form_style" name="insertForm" onsubmit="return insetValidateForm()">
+    {% csrf_token %}
+    <div class="insert_div" style="margin-top: 10px">
+        <p>이름 <span style="color: red"> *</span></p>
+        <p><input type="text" placeholder="내 답변" style="width: 200px; height: 20px" name="user"></p>
+    </div>
+    <div class="insert_div" style="margin-top: 10px">
+        <p>학과 <span style="color: red"> *</span></p>
+        <p><input type="radio" name="department" value="건축공학과">&emsp; 건축공학과</p>
+        <p><input type="radio" name="department" value="건축학과">&emsp; 건축학과</p>
+        <p><input type="radio" name="department" value="기계공학과">&emsp; 기계공학과</p>
+        <p><input type="radio" name="department" value="사회기반시스템공학과">&emsp; 사회기반시스템공학과</p>
+        <p><input type="radio" name="department" value="산업경영공학과">&emsp; 산업경영공학과</p>
+        <p><input type="radio" name="department" value="원자력공학과">&emsp; 원자력공학과</p>
+        <p><input type="radio" name="department" value="정보전자신소재공학과">&emsp; 정보전자신소재공학과</p>
+        <p><input type="radio" name="department" value="화학공학과">&emsp; 화학공학과</p>
+        <p><input type="radio" name="department" value="환경학및환경공학과">&emsp; 환경학및환경공학과</p>
+    </div>
+    <div class="insert_div" style="margin-top: 10px">
+        <p>학번 10자리 (2018100123) <span style="color: red"> *</span></p>
+        <p><input type="number" placeholder="내 답변" style="width: 200px; height: 20px" name="studentID" maxlength="10"></p>
+    </div>
+    <div class="insert_div" style="margin-top: 10px">
+        <p>연락처 (010-1234-5678) <span style="color: red"> *</span></p>
+        <p><input type="text" placeholder="내 답변" style="width: 200px; height: 20px" name="phoneNumber" maxlength="13"></p>
+    </div>
+    <div class="insert_div" style="margin-top: 10px">
+        <p>원하는 간식 <span style="color: red"> *</span></p>
+        <p><input type="radio" name="orderItem" value="[서브웨이]1만원권">&emsp; [서브웨이]1만원권</p>
+        <p><input type="radio" name="orderItem" value="[맥도날드]1만원권">&emsp; [맥도날드]1만원권</p>
+        <p><input type="radio" name="orderItem" value="[GS25]1만원권">&emsp; [GS25]1만원권</p>
+    </div>
+    <div class="insert_div" style="margin-top: 10px; background-color: #E6E6FA; padding: 0px">
+        <input type="submit" style="width: 70px; height: 35px; color: white; background-color: #6495ed; border: none" value="제출">
+    </div>
+</form>
+<script>
+    function insetValidateForm(){
+        const user = document.forms["insertForm"]["user"].value;
+        const department = document.forms["insertForm"]["department"].value;
+        const studentID = document.forms["insertForm"]["studentID"].value;
+        const phoneNumber = document.forms["insertForm"]["phoneNumber"].value;
+        const orderItem = document.forms["insertForm"]["orderItem"].value;
+
+        if(user === "" || department === "" || studentID === "" || phoneNumber === "" || orderItem === ""){
+            alert("모든 필드를 입력해 주세요.");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

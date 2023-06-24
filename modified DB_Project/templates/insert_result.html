@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>공과대학 간식행사</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+<div style="background-color: white; width: 250px; padding: 5px; margin: 0 auto">
+    <p style="text-align: left; margin-left: 20px">{{ order.user }}님,</p>
+    <img id="insertResultImage" src="{% static 'img/subway.jpg' %}" width="180" ; height="180" onload="changeImage()">
+    <p style="text-align: left; margin-left: 20px">신청이 완료되었습니다.</p>
+</div>
+<button id = "btn_mainPage" style="margin-top: 10px; height: 35px; color: white; background-color: #6495ed; border: none">Main Page</button><br>
+</body>
+<script>
+    function changeImage() {
+        const orderItem = '{{order.orderItem}}';
+        const image = document.getElementById('insertResultImage');
+
+        if (orderItem === '[서브웨이]1만원권') {
+            image.src = "{% static 'img/subway.jpg' %}"
+        } else if (orderItem === '[맥도날드]1만원권') {
+            image.src = "{% static 'img/macdonald.jpg' %}"
+        } else if (orderItem === '[GS25]1만원권') {
+            image.src = "{% static 'img/gs25.jpg' %}"
+        }
+    }
+
+    const btn_mainPage = document.getElementById('btn_mainPage');
+    btn_mainPage.addEventListener('click', function(){
+        location.href = "http://127.0.0.1:8000/index/"
+    })
+</script>
+</html>
