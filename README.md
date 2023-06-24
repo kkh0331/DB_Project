@@ -7,7 +7,7 @@
 - 2가지 프로젝트가 기본적으로 비슷하지만 UI 측면에서 약간 다름
 - Main Page Capture Image<br>
 <img width="624" alt="DB_Project_test_img" src="https://github.com/kkh0331/DB_Project/assets/99806443/2d4734f1-bb8d-460e-9fef-2786df1b44d2"><br>
-[시연영상을 보실려면 여기를 클릭해주세요](https://www.youtube.com/watch?v=I2rfgOOmR5E)
+[시연영상을 보실려면 여기를 클릭해주세요](https://youtu.be/s2SLKEqgkWM)
 
 # Functions
 - 원하는 간식 신청
