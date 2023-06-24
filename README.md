@@ -2,9 +2,12 @@
 - initial DB_Project : 2021년 1학기 경희대학교 산업경영공학과 '데이터베이스 이론 및 실습' 수업에서 과제로 만든 개인프로젝트
 - DB_Project : initial DB_Project의 서버를 사용할 수 없어서 initial DB_Project을 기반으로 하여 만든 개인프로젝트
 
-# 개인프로젝트 : 공과대학 간식행사 신청 및 취소 시스템
+# 개인프로젝트 : 공과대학 간식행사
 - DB의 기본적인 CRUD을 실습하기 위한 프로젝트
 - 2가지 프로젝트가 기본적으로 비슷하지만 UI 측면에서 약간 다름
+- Main Page Capture Image<br>
+<img width="624" alt="DB_Project_test_img" src="https://github.com/kkh0331/DB_Project/assets/99806443/2d4734f1-bb8d-460e-9fef-2786df1b44d2"><br>
+[시연영상을 보실려면 여기를 클릭해주세요](https://www.youtube.com/watch?v=I2rfgOOmR5E)
 
 # Functions
 - 원하는 간식 신청
