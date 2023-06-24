@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>공과대학 간식행사</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <style>
+        input{
+            text-align: center;
+            width: 90px;
+        }
+        select{
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="font-size: 50px; color: #51588c; font-weight: bold">Do you want to update the application content?</h1>
+<table class="table_style">
+    <th>이름</th>
+    <th style="width: 150px">기존 학과</th>
+    <th>새로운 학과</th>
+    <th>학번 10자리</th>
+    <th>연락처</th>
+    <th style="width: 120px">기존 간식</th>
+    <th>새로운 간식</th>
+    <th>Update</th>
+    {% for order in orders.all%}
+    <tr>
+        <form action="http://127.0.0.1:8000/update/" method="POST" class="form_style">
+            {% csrf_token %}
+            <input type="hidden" name="update_id" value="{{ order.id }}">
+            <td> <input type="text" name="user" value="{{order.user}}"></td>
+            <td style="width: 150px"> {{ order.department}}</td>
+            <td>
+                <select name="department">
+                    <option value="변경없음">변경없음</option>
+                    <option value="건축공학과">건축공학과</option>
+                    <option value="건축학과">건축학과</option>
+                    <option value="기계공학과">기계공학과</option>
+                    <option value="사회기반시스템공학과">사회기반시스템공학과</option>
+                    <option value="산업경영공학과">산업경영공학과</option>
+                    <option value="원자력공학과">원자력공학과</option>
+                    <option value="정보전자신소재공학과">정보전자신소재공학과</option>
+                    <option value="화학공학과">화학공학과</option>
+                    <option value="환경학및환경공학과">환경학및환경공학과</option>
+                </select>
+            </td>
+<!--            <td> <input type="text" name="department" value="{{order.department}}"></td>-->
+            <td> <input type="number" name="studentID" value="{{order.studentID}}"></td>
+            <td> <input type="text" name="phoneNumber" value="{{order.phoneNumber}}"></td>
+            <td style="width: 120px"> {{order.orderItem}}</td>
+            <td>
+                <select name="orderItem">
+                    <option value="변경없음">변경없음</option>
+                    <option value="[서브웨이]1만원권">[서브웨이]1만원권</option>
+                    <option value="[GS25]1만원권">[GS25]1만원권</option>
+                    <option value="[맥도날드]1만원권">[맥도날드]1만원권</option>
+                </select>
+            </td>
+            <td>
+                <input type="submit" style='WIDTH: 60pt; HEIGHT: 18pt; color:#6495ed; border:none; background-color: white; text-decoration: underline' value="내용 수정">
+            </td>
+        </form>
+    </tr>
+    {% endfor %}
+</table>
+<button id="btn_mainPage" class="btn_style2">Main Page</button>
+<br>
+</body>
+<script>
+    const btn_mainPage = document.getElementById('btn_mainPage');
+    btn_mainPage.addEventListener('click', function () {
+        location.href = "http://127.0.0.1:8000/index/"
+    })
+</script>
+</html>

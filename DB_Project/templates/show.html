@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>공과대학 간식행사</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <style>
+        input{
+            text-align: center;
+            width: 90px;
+        }
+        select{
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="font-size: 50px; color: #51588c; font-weight: bold">Application List Show</h1>
+<p>
+    <b style="color: red">&#10004; 남은 개수</b>
+    {% for item in items.all%}
+        &emsp; <b>{{item.orderItem}}</b> : {{item.remainder}}개
+    {% endfor%}
+</p>
+<table class="table_style">
+    <th>이름</th>
+    <th style="width: 150px">학과</th>
+    <th>학번 10자리</th>
+    <th style="width: 150px">연락처</th>
+    <th style="width: 120px">원하는 간식</th>
+    {% for order in orders.all%}
+    <tr>
+        <td>{{ order.user }}</td>
+        <td style="width: 150px">{{ order.department }}</td>
+        <td>{{ order.studentID }}</td>
+        <td style="width: 150px">{{ order.phoneNumber }}</td>
+        <td style="width: 120px">{{ order.orderItem }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<button id="btn_mainPage" class="btn_style2">Main Page</button>
+<br>
+</body>
+<script>
+    const btn_mainPage = document.getElementById('btn_mainPage');
+    btn_mainPage.addEventListener('click', function () {
+        location.href = "http://127.0.0.1:8000/index/"
+    })
+</script>
+</html>
